@@ -307,14 +307,14 @@ class Home extends Component {
                         </div>
                     </div>
                     { this.ContentFunc() }
-                    {/* <div>
+                    <div>
                         <div className="container widgets">
                             <div className="section">
                                 <div className="row">
                                     <div className="col s12 m4">
                                         <div className="icon-block center">
                                             <button type="button" className="btn btn-primary" data-target="theme-modal">Search</button>
-                                            <h4 className="center">TEST</h4>
+                                            <h4 className="center">Search and Discover Resources</h4>
                                             <p className="light center">Use simple or advanced tools to search for data meeting your criteria.</p>
                                         </div>
                                     </div>
@@ -336,7 +336,7 @@ class Home extends Component {
                             </div>
                         </div>
                         <div className="parallax-container valign-wrapper"></div>
-                    </div> */}
+                    </div>
                     <footer className="page-footer font-small indigo" style={{background: "rgb(0, 0, 255) none repeat scroll 0% 0%"}}>
                         <div className="row" style={{ marginLeft: "15px"}}>
                             <div className="col l3 s12">

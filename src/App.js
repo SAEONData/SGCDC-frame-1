@@ -17,7 +17,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-import DataGuidence from './DataGuidence';
+import DataGuidance from './DataGuidance';
 import TermsConditions from './TermsConditions';
 import Contact from './Contact';
 import Glossary from './Glossary';
@@ -64,8 +64,8 @@ handleClick(event) {
       ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
       break;
     
-    case "DataGuidence":
-      ReactDOM.render(<DataGuidence/>, document.getElementById('root'));
+    case "DataGuidance":
+      ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
       break;
     
     case "Contact":
@@ -350,8 +350,8 @@ reloadContent(path) {
       ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
       break;
     
-    case "DataGuidence":
-      ReactDOM.render(<DataGuidence/>, document.getElementById('root'));
+    case "DataGuidance":
+      ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
       break;
     
     case "Contact":
@@ -445,7 +445,7 @@ iFrameModal(Header, iFrameLink, modalId) {
 
   const ReturnModal = () => (<Modal size="lg" aria-hidden="true" onClickAway={() => this.toggle(modalId)} effect="fadeInUp" isOpen={this.state[modalId.replace("#","")]} toggle={() => this.toggle(modalId)} background="grey">
                                <ModalHeader size="lg" className="black-text">{"Terms and Conditions"}</ModalHeader>
-                               <iframe src={ iFrameLink } title="#"></iframe>
+                               <iframe src={ "http://sgcdc.saeon.ac.za" } title="#"></iframe>
                              </Modal>);
 
   return (<ReturnModal/>);

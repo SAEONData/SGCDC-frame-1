@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import DataGuidence from './DataGuidence';
+import DataGuidance from './DataGuidance';
 import TermsConditions from './TermsConditions';
 import Glossary from './Glossary';
 import About from './About';
@@ -35,8 +35,8 @@ class Contact extends Component {
                 ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
                 break;
             
-            case "DataGuidence":
-                ReactDOM.render(<DataGuidence/>, document.getElementById('root'));
+            case "DataGuidance":
+                ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
                 break;
             
             case "Contact":
@@ -92,8 +92,8 @@ class Contact extends Component {
                 ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
                 break;
               
-              case "DataGuidence":
-                ReactDOM.render(<DataGuidence/>, document.getElementById('root'));
+              case "DataGuidance":
+                ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
                 break;
               
               case "Contact":
@@ -301,8 +301,8 @@ class Contact extends Component {
                                     <button type="button" className="link-button" style={{ backgroundColor: "transparent", color: "black", border: "none" }} onClick={ this.handleClick.bind(this, "TermsConditions") }>T &amp; C's</button>
                                 </li>
                                 <li styled="true">
-                                    {/* <a style={{color: "black"}} onClick={ this.handleClick.bind(this, "DataGuidence") }>Data Guidence</a> */}
-                                    <button type="button" className="link-button" style={{ backgroundColor: "transparent", color: "black", border: "none" }} onClick={ this.handleClick.bind(this, "DataGuidence") }>Data Guidence</button>
+                                    {/* <a style={{color: "black"}} onClick={ this.handleClick.bind(this, "DataGuidance") }>Data Guidance</a> */}
+                                    <button type="button" className="link-button" style={{ backgroundColor: "transparent", color: "black", border: "none" }} onClick={ this.handleClick.bind(this, "DataGuidance") }>Data Guidance</button>
                                 </li>
                                 <li styled="true">
                                     {/* <a style={{color: "black"}} onClick={ this.handleClick.bind(this, "Contact") }>Contact</a> */}

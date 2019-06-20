@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import DataGuidence from './DataGuidence';
+import Dataguidance from './DataGuidance';
 import TermsConditions from './TermsConditions';
 import Contact from './Contact';
 import About from './About';
@@ -35,8 +35,8 @@ class Glossary extends Component {
             ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
             break;
         
-        case "DataGuidence":
-            ReactDOM.render(<DataGuidence/>, document.getElementById('root'));
+        case "Dataguidance":
+            ReactDOM.render(<Dataguidance/>, document.getElementById('root'));
             break;
         
         case "Contact":
@@ -284,8 +284,8 @@ class Glossary extends Component {
                                     <button type="button" className="link-button" style={{ backgroundColor: "transparent", color: "black", border: "none" }} onClick={ this.handleClick.bind(this, "TermsConditions") }>T &amp; C's</button>
                                 </li>
                                 <li styled="true">
-                                    {/* <a style={{color: "black"}} onClick={ this.handleClick.bind(this, "DataGuidence") }>Data Guidence</a> */}
-                                    <button type="button" className="link-button" style={{ backgroundColor: "transparent", color: "black", border: "none" }} onClick={ this.handleClick.bind(this, "DataGuidence") }>Data Guidence</button>
+                                    {/* <a style={{color: "black"}} onClick={ this.handleClick.bind(this, "Dataguidance") }>Data Guidance</a> */}
+                                    <button type="button" className="link-button" style={{ backgroundColor: "transparent", color: "black", border: "none" }} onClick={ this.handleClick.bind(this, "Dataguidance") }>Data Guidance</button>
                                 </li>
                                 <li styled="true">
                                     {/* <a style={{color: "black"}} onClick={ this.handleClick.bind(this, "Contact") }>Contact</a> */}
