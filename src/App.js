@@ -1,5 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import ReactDOM from 'react-dom';
+import { hot } from 'react-hot-loader'
 import './App.css';
 import './CustomCSS.css'; 
 import * as parsedData from './JSON_Dat.json';
@@ -8,7 +9,6 @@ import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 import DynamicFooter from './components/footer/DynamicFooter'
-import ModalView from './components/modal/ModalView'
 
 import { Tooltip } from '@trendmicro/react-tooltip';
 import '@trendmicro/react-tooltip/dist/react-tooltip.css';
@@ -1130,4 +1130,4 @@ render() {
   }
 }
 
-export default App;
+export default hot(module)(App)

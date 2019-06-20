@@ -10,3 +10,10 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+if (module.hot && process.env.NODE_ENV === "development") {
+    module.hot.accept("./App", () => {
+      const NextApp = require("./App").default;
+      ReactDOM.render( rootId);
+    });
+}

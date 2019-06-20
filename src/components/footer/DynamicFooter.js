@@ -3,9 +3,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact"
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useFetch } from 'react-hooks-fetch'
-import useModal from '../modal/useModal'
-import DynamicModal from '../modal/DynamicModal'
-import ModalView from "../modal/ModalView";
+
 
 const Modal = ({ children }) => (
   ReactDOM.createPortal(
@@ -56,12 +54,12 @@ const DynamicFooter = () => {
 
       
  
-    <MDBFooter color="blue" className="font-small pt-4 mt-4">
+    <MDBFooter color="blue" >
       
-      <MDBContainer fluid className="text-center text-md-left">
+      <MDBContainer fluid className="text-md-center">
         
-        <MDBRow>
-          <MDBCol sm="2">
+        <MDBRow >
+          <MDBCol md="3" >
           <ToggleContent toggle={show => 
             <h5 className="title" style={{cursor:'pointer', boxShadow:'none'}} onClick={show}>
              {data.map((data, uuid) => [uuid === 0 ? data.title : ''])}
@@ -82,7 +80,7 @@ const DynamicFooter = () => {
             {data.map((data, uuid) => [uuid === 0 ? data.shortdescription : ''])}
           </p>
           </MDBCol>
-          <MDBCol sm="2">
+          <MDBCol md="2">
           <ToggleContent toggle={show => 
             <h5 className="title" style={{cursor:'pointer', boxShadow:'none'}} onClick={show}>
              {data.map((data, uuid) => [uuid === 1 ? data.title : ''])}
@@ -103,7 +101,7 @@ const DynamicFooter = () => {
             {data.map((data, uuid) => [uuid === 1 ? data.shortdescription : ''])}
           </p>
           </MDBCol>
-          <MDBCol sm="2">
+          <MDBCol md="2">
           <ToggleContent toggle={show => 
             <h5 className="title" style={{cursor:'pointer', boxShadow:'none'}} onClick={show}>
              {data.map((data, uuid) => [uuid === 2 ? data.title : ''])}
@@ -124,7 +122,7 @@ const DynamicFooter = () => {
             {data.map((data, uuid) => [uuid === 2 ? data.shortdescription : ''])}
           </p>
           </MDBCol>
-          <MDBCol sm="2">
+          <MDBCol md="2">
           <ToggleContent toggle={show => 
             <h5 className="title" style={{cursor:'pointer', boxShadow:'none'}} onClick={show}>
              {data.map((data, uuid) => [uuid === 3 ? data.title : ''])}
@@ -145,7 +143,7 @@ const DynamicFooter = () => {
             {data.map((data, uuid) => [uuid === 3 ? data.shortdescription : ''])}
           </p>
           </MDBCol>
-          <MDBCol sm="2">
+          <MDBCol md="2">
           <ToggleContent toggle={show => 
             <h5 className="title" style={{cursor:'pointer', boxShadow:'none'}} onClick={show}>
              {data.map((data, uuid) => [uuid === 4 ? data.title : ''])}
@@ -166,7 +164,7 @@ const DynamicFooter = () => {
             {data.map((data, uuid) => [uuid === 4 ? data.shortdescription : ''])}
           </p>
           </MDBCol>
-          <MDBCol sm="2">
+          <MDBCol md="2">
           <ToggleContent toggle={show => 
             <h5 className="title" style={{cursor:'pointer', boxShadow:'none'}} onClick={show}>
              {data.map((data, uuid) => [uuid === 5 ? data.title : ''])}
