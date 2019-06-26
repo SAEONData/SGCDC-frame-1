@@ -22,6 +22,10 @@ import TermsConditions from './TermsConditions';
 import Contact from './Contact';
 import Glossary from './Glossary';
 import About from './About';
+import iFrame from './components/iframe/FullheightIframe';
+import FullheightIframe from './components/iframe/FullheightIframe';
+import SmartIFrame from './components/iframe/FullheightIframe';
+import WrappedFrame from './components/iframe/FullheightIframe';
 
 
 class App extends Component { 
@@ -358,10 +362,15 @@ reloadContent(path) {
       ReactDOM.render(<Contact/>, document.getElementById('root'));
       break;
 
+    case "Search":
+      ReactDOM.render(<WrappedFrame />,  document.getElementById('root'))  
+
     default:
     break;
   }
 }
+
+
 
 reloadWidgets(content) {
   this.setState({widgets : content})
@@ -441,11 +450,11 @@ BuildStyleVar(NodePath){
   return style2object(Style)
 }
 
-iFrameModal(Header, iFrameLink, modalId) {
+iFrameModal(Header,  modalId) {
 
   const ReturnModal = () => (<Modal size="lg" aria-hidden="true" onClickAway={() => this.toggle(modalId)} effect="fadeInUp" isOpen={this.state[modalId.replace("#","")]} toggle={() => this.toggle(modalId)} background="grey">
-                               <ModalHeader size="lg" className="black-text">{"Terms and Conditions"}</ModalHeader>
-                               <iframe src={ "http://sgcdc.saeon.ac.za" } title="#"></iframe>
+                               <ModalHeader size="lg" className="black-text">{ Header }</ModalHeader>
+                               <iframe src={ 'http://www.sasdi.net/search.aspx?noframe=true' } title="#"></iframe>
                              </Modal>);
 
   return (<ReturnModal/>);
@@ -949,10 +958,10 @@ ContentWidgets = (Content) => {
                          ButtonText = parsedData.default.ideas[x].ideas[z].ideas[d].ideas[c].title;
                     }
                     const MessengerVar = ButtonText.toString()
-
+                    
                       Widgets.push(<div className="col s12 m4" key={parsedData.default.ideas[x].ideas[z].ideas[d].id}>
                                     <div className="icon-block center">
-                                      <button type="button" className="btn btn-primary" data-target="theme-modal" onClick={ () => this.reloadContent(MessengerVar, 'widget')}>{ ButtonText }</button>
+                                      <button type="button" className="btn btn-primary" data-target="#theme-modal" onClick={ () => this.reloadContent(MessengerVar, 'widget')}>{ ButtonText }</button>
                                       <h4 className="center">{ Header }</h4>
                                       <p className="light center">{ Description }</p>
                                     </div>
