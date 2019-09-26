@@ -1,108 +1,59 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import DataGuidance from './DataGuidance';
 import TermsConditions from './TermsConditions';
+import Contact from './Contact';
 import Glossary from './Glossary';
 import About from './About';
 import App from './App';
 
-class Contact extends Component { 
+class DataGuidance extends Component { 
 
     constructor(props) {
       super(props);
       this.state = {content: "", widgets: "", ReadingRisk: false, ContentHeading: "", ContentBody: "", HideSearchBar: true, SearchText: "", SearchModal: false };
-      this.ContentFunc = this.ContentFunc.bind(this)
-      this.ReloadContent = this.ReloadContent.bind(this)
+      this.ContentFunc = this.ContentFunc.bind(this);
+      this.handleClick = this.handleClick.bind(this);
     } 
- 
+
     handleClick(event) {
     
         switch (event) {
-            case "Home": 
-                ReactDOM.render(<App/>, document.getElementById('root'));
-                break;
-        
-            case "Glossary":
-                ReactDOM.render(<Glossary/>, document.getElementById('root'));
-                break;
-                
-            case "About":
-                ReactDOM.render(<About/>, document.getElementById('root'));
-                break;
-        
-            case "TermsConditions":
-                ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
-                break;
-            
-            case "DataGuidance":
-                ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
-                break;
-            
-            case "Contact":
-                ReactDOM.render(<Contact/>, document.getElementById('root'));
-                break;
-        
-            default:
+        case "Home": 
+            ReactDOM.render(<App/>, document.getElementById('root'));
             break;
+    
+        case "Glossary":
+            ReactDOM.render(<Glossary/>, document.getElementById('root'));
+            break;
+            
+        case "About":
+            ReactDOM.render(<About/>, document.getElementById('root'));
+            break;
+    
+        case "TermsConditions":
+            ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
+            break;
+        
+        case "DataGuidance":
+            ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
+            break;
+        
+        case "Contact":
+            ReactDOM.render(<Contact/>, document.getElementById('root'));
+            break;
+    
+        default:
+        break;
         }
     }
-    
+  
     ContentFunc = () => {
-        const Base = (<div>
-                        <form className="contact-form" onSubmit={ (e) => this.formSubmit(e)} style={{ paddingLeft: "7%", paddingRight: "7%", width: "100%", height: "100%", position: "absolute", top: "0", left: "0", paddingTop: "8%", color: "black" }}>
-                            <label class="message" htmlFor="message-input">Your Message</label>
-                            <textarea onChange={e => this.setState({ message: e.target.value})} name="message" class="message-input" type="text" placeholder="Please write your message here" value={this.state.message} required/>
-
-                            <label class="message-name" htmlFor="message-name">Your Name</label>
-                            <input onChange={e => this.setState({ name: e.target.value})} name="name" class="message-name" type="text" placeholder="Your Name" value={this.state.name}/>
-
-                            <label class="message-email" htmlFor="message-email">Your Email</label>
-                            <input onChange={(e) => this.setState({ email: e.target.value})} name="email" class="message-email" type="email" placeholder="your@email.com" required value={this.state.email} />
-
-                            <div className="button--container" style={{ paddingLeft: "47%"}}>
-                                <button type="submit" className="button button-primary">Submit</button>
-                            </div>
-                        </form>
+        const Base = (<div style={{ paddingLeft: "41%", paddingBottom: "50%", fontSize: "30pt" }}>
+                        Data Guidance Page
                       </div>)
 
         return Base;                      
-    }
-    
-    componentDidUpdate(prevProps) {
-        if (this.props.userID !== prevProps.userID) {
-          this.fetchData(this.props.userID);
-        }
-      }
-    ReloadContent = (path) => { 
-            switch (path) {
-              case "Home": 
-                ReactDOM.render(<App/>, document.getElementById('root'));
-                break;
-
-              case "Glossary":
-                ReactDOM.render(<Glossary/>, document.getElementById('root'));
-                break;
-                
-              case "About":
-                ReactDOM.render(<About/>, document.getElementById('root'));
-                break;
-
-              case "TermsConditions":
-                ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
-                break;
-              
-              case "DataGuidance":
-                ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
-                break;
-              
-              case "Contact":
-                ReactDOM.render(<Contact/>, document.getElementById('root'));
-                break;
-            
-              default:
-                break;
-            } 
     }
     
     render() {
@@ -128,7 +79,7 @@ class Contact extends Component {
                                         <span>SARVA</span>
                                     </div>
                                 </div>
-                                <div role="menu" className="sidenav---sidenav-subnav---1EN61">
+                                <div role="menu" className="sidenav---sidenav-subnav---1EN61"> 
                                     <div role="heading" className="sidenav---sidenav-subnavitem---1cD47">
                                         <span>SARVA</span>
                                     </div>
@@ -149,7 +100,7 @@ class Contact extends Component {
                                     <div role="presentation" className="sidenav---sidenav-subnavitem---1cD47">
                                         <div className="sidenav---navitem---9uL5T" role="menuitem" tabIndex="-1">
                                             <div className="sidenav---navtext---1AE_f">
-                                                <a href="http://www.sasdi.net/search.aspx?anytext=energy" rel="noopener nereferrer" className="black-text">Finding Data</a>
+                                                <a href="http://www.sasdi.net/search.aspx?anytext=energy" rel="noopener nereferrer" className="black-text" >Finding Data</a>
                                             </div>
                                         </div>
                                     </div>
@@ -280,7 +231,40 @@ class Contact extends Component {
                         </div>
                     </nav>
                     <nav className="white" role="navigation">
-                        <div className="nav-wrapper container">
+                        {/* <div className="nav-wrapper container">
+                            <a id="logo-container" href="http://app01.saeon.ac.za/sarva3/" rel="noopener nereferrer" className="brand-logo">&nbsp; SARVA 3.0</a>
+                            <ul className="right hide-on-med-and-down">
+                                <img id="menu-logo" alt="img not loaded" src="https://drive.google.com/uc?id=0ByxQT6Sr1O7ZdGVRMHZzWXYtaTFDU0g4czF1VENMNXRHTWhN"/>
+                                <li styled="true">
+                                    <a href="www.google.com">Home</a>
+                                </li>
+                                <li styled="true">
+                                    <a href="www.google.com">Services</a>
+                                </li>
+                                <li styled="true">
+                                    <a href="www.google.com">Products</a>
+                                </li>
+                                <li className="sub-menu-parent" tab-index="0" style={{background: "rgb(51, 102, 255) none repeat scroll 0% 0%"}}>
+                                    <a href="www.google.com">Themes ⇓</a>
+                                    <ul className="sub-menu">
+                                        <li style={{fontSize: "12px", color: "red", width: "100%"}}>
+                                            <a href="www.google.com">Biodiversity</a>
+                                        </li>
+                                        <li style={{fontSize: "12px", color: "red", width: "100%"}}>
+                                            <a href="www.google.com">Trends</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <i className="glyphicon glyphicon-search" style={{fontSize: "1.75em", color: "rgb(104, 103, 103)"}}/>
+                            </ul>
+                            <input className="hidden black-text" type="text" name="Search"/>
+                            <i className="hidden glyphicon glyphicon-search" style={{fontSize: "1.75em", color: "rgb(104, 103, 103)"}}></i>
+                            <div style={{textAlign: "center"}}>
+                                <button className="hidden glyphicon glyphicon-search" style={{fontSize: "1.75em", color: "black", background: "transparent none repeat scroll 0% 0%", border: "medium none"}}></button>
+                            </div>
+                        </div> */}
+
+<div className="nav-wrapper container">
                             <a id="logo-container" href="http://app01.saeon.ac.za/sarva3/" rel="noopener nereferrer" className="brand-logo">&nbsp; SARVA 3.0</a>
                             <ul className="right hide-on-med-and-down">
                                 <img id="menu-logo" alt="img not loaded" src="https://drive.google.com/uc?id=0ByxQT6Sr1O7ZdGVRMHZzWXYtaTFDU0g4czF1VENMNXRHTWhN"/>
@@ -319,14 +303,47 @@ class Contact extends Component {
                     
                     </nav>
                     <div id="index-banner" className="parallax-container">
-                        <ul className="breadcrumb" style={{background: "transparent none repeat scroll 0% 0%", paddingLeft: "5%", color: "black", position: "relative"}}></ul>
+                        <ul className="breadcrumb" style={{background: "transparent none repeat scroll 0% 0%", paddingLeft: "5%", color: "black"}}></ul>
                         <div className="section no-pad-bot">
                             <div className="container">
                                 <br/><br/>
+                                <div>
+                                    {/* <h2 className="header center text-darken-4"></h2> */}
+                                </div>
                             </div>
                         </div>
                     </div>
                     { this.ContentFunc() }
+                    {/* <div>
+                        <div className="container widgets">
+                            <div className="section">
+                                <div className="row">
+                                    <div className="col s12 m4">
+                                        <div className="icon-block center">
+                                            <button type="button" className="btn btn-primary" data-target="theme-modal">Search</button>
+                                            <h4 className="center">TEST</h4>
+                                            <p className="light center">Use simple or advanced tools to search for data meeting your criteria.</p>
+                                        </div>
+                                    </div>
+                                    <div className="col s12 m4">
+                                        <div className="icon-block center">
+                                            <button type="button" className="btn btn-primary" data-target="theme-modal">Themes</button>
+                                            <h4 className="center">Explore Available Resources by Sector or Theme</h4>
+                                            <p className="light center">Browse, preview, and access data and narratives in popular collections and in common themes.</p>
+                                        </div>
+                                    </div>
+                                    <div className="col s12 m4">
+                                        <div className="icon-block center">
+                                            <button type="button" className="btn btn-primary" data-target="theme-modal">Contribute</button>
+                                            <h4 className="center">Tell Us About Your Area of Interest</h4>
+                                            <p className="light center">Register as a user and contribute data, assessments, and media.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="parallax-container valign-wrapper"></div>
+                    </div> */}
                     <footer className="page-footer font-small indigo" style={{background: "rgb(0, 0, 255) none repeat scroll 0% 0%"}}>
                         <div className="row" style={{ marginLeft: "15px"}}>
                             <div className="col l3 s12">
@@ -368,4 +385,4 @@ class Contact extends Component {
     }
 }
 
-export default Contact;
+export default DataGuidance;

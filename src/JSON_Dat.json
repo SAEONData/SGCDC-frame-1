@@ -90,10 +90,10 @@
               }
             },
             "5": {
-              "title": "Data Guidence",
+              "title": "Data Guidance",
               "id": "9.137b.610236dcc-c9b6.sdfe56763",
               "attr": {
-                "link": "DataGuidence",
+                "link": "DataGuidance",
                 "note": {
                   "index": 7,
                   "text": "{\r\n\t\"title\": \"Products\",\r\n\t\"icon\": \"fa fa-archive\",\r\n        \"tooltip\": \"Products\"\r\n}"
@@ -472,7 +472,7 @@
       "ideaIdTo": "27.5661.e19774766-e780.6e09bd81a",
       "attr": {
         "style": {
-          "color": "#FF0000",
+          "color": "#e63c3c",
           "lineStyle": "dashed",
           "arrow": "to",
           "label": ""
@@ -484,7 +484,7 @@
       "ideaIdTo": "26.5661.e19774766-e780.6e09bd81a",
       "attr": {
         "style": {
-          "color": "#FF0000",
+          "color": "#e63c3c",
           "lineStyle": "dashed",
           "arrow": "to"
         }
