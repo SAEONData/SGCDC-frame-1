@@ -2782,15 +2782,6 @@ video.responsive-video {
 /*********************
   Transition Classes
 **********************/
-ul.staggered-list li {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 0;
-  -webkit-transform-origin: 0 50%;
-          transform-origin: 0 50%;
-}
 
 /*********************
   Media Query Classes
@@ -5571,38 +5562,6 @@ button.btn-floating {
   z-index: -1;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background-color: #fafafa;
-  padding: 0;
-  max-height: 80%;
-  width: 55%;
-  margin: auto;
-  overflow-y: auto;
-  border-radius: 2px;
-  will-change: top, opacity;
-}
-
-@media only screen and (max-width: 992px) {
-  .modal {
-    width: 80%;
-  }
-}
-
-.modal h1, .modal h2, .modal h3, .modal h4 {
-  margin-top: 0;  
-}
-
-.modal .modal-content {
-  padding: 24px;
-}
-
-.modal .modal-close {
-  cursor: pointer;
-}
 
 .modal .modal-footer {
   border-radius: 0 0 2px 2px;
@@ -9185,22 +9144,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
      width: 100%;
    }
  
- @media only screen and (max-width : 992px) {
-   .parallax-container .section {
-     position: absolute;
-     top: 40%;
-   }
- 
-   #index-banner .section {
-     top: 10%;
-   }
- }
- 
- @media only screen and (max-width : 600px) {
-   #index-banner .section {
-     top: 0;
-   }
- }
+
  
  .icon-block {
    padding: 0 15px;
@@ -9245,10 +9189,6 @@ img {
 #slide-out{
   width: 360px; 
   transform: translateX(-100%);
-}
-
-.modal-trigger{
-  font-size:12px; 
 }
 
 #menu-logo{
@@ -9306,13 +9246,6 @@ nav > ul > li:first-child { border-left: none; }
   background: #DDD;
 }
 
-#index-banner{
-  background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2000px-React-icon.svg.png);
-  background-repeat: no-repeat ;
-  background-size: contain;
-  background-position: center;
-}
-
 .widgets{
   margin: 0, auto;
 }
@@ -9341,104 +9274,20 @@ nav > ul > li:first-child { border-left: none; }
   width:280px
 }
 
-.bm-burger-button button {
-  position: absolute !important;
-    left: 0px !important;
-    top: 0px !important;
-    width: 10% !important;
-    height: 10% !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    border: medium none !important;
-    opacity: unset !important;
-    font-size: 8px !important;
-    cursor: pointer !important;
-    
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    border: 0;
-    background: transparent;
-    font-family: "Glyphicons Halflings";
-    content: "&#163;";
-}
-
 .sidenav---sidenav---_2tBP{
   width: 4%;
   height: 100% !important;
   background: transparent !important;
 }
-  .sidenav---sidenav---_2tBP > button {
-    background: red;
-  }
 
-.sidenav---sidenav-navitem---uwIJ-{
-  color: black;
-  background: red !important;
-}
 
-.sidenav---expandable---3_dr7{
-  color: black;
-  background: red !important;
-}
 
-.sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navicon---3gCRo, .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ- > .sidenav---navitem---9uL5T .sidenav---navtext---1AE_f{
-  color: black !important;
-}
-
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:hover > .sidenav---navitem---9uL5T {
-  background: grey !important;
-}
-
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47:hover > .sidenav---navitem---9uL5T{
-  color: black;
-}
-
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 > .sidenav---sidenav-subnavitem---1cD47 > .sidenav---navitem---9uL5T {
-  color: black !important;
-}
-
-.sidenav---sidenav---_2tBP.sidenav---expanded---1KdUL .sidenav---sidenav-nav---3tvij > .sidenav---sidenav-navitem---uwIJ-.sidenav---expanded---1KdUL .sidenav---sidenav-subnav---1EN61 {
-  background: #e16868 !important;
-}
-
-.modal {
-  display: block !important;
-}
-
-.modal-backdrop {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-.modal .modal-content {
-  padding: 24px;
-  box-shadow: none !important;
-}
- 
-.fade{
-  opacity: unset !important;
-  background: transparent !important;
-  box-shadow: none !important;
-} 
-
-.modal-content, .modal-body, .modal-footer{
-  background: #e3e3e3 !important;
-}
-
-.modal-innet-text {
-  white-space : pre-wrap !important;
-}
 
 .sidenav {
   box-shadow: none;
   position: fixed !important;
 } 
 
-.modal{
-  overflow: auto !important;
-}
 
 html, body {
   margin: 0 !important;
@@ -9496,24 +9345,10 @@ html, body {
 
 /* ///////////////////////////////////////////// HERE ///////////////////////////////////////////// */
 
-.container > .modal {
-  height: 100% !important;
-  width: 100% !important;
-  margin: 2%;
-  margin-left: 3% !important;
-}
 
-.modal-fluid {
-  height: 100% !important;
-}
 
 .page-footer {
    display: table !important;
    overflow: hidden !important;
    width: 100% !important;
-}
-
-.modal-lg {
-  height: 100% !important;
-  width: 100% !important;
 }

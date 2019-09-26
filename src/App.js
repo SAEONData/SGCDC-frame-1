@@ -1,24 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
+import { hot } from 'react-hot-loader'
+
 import './CustomCSS.css'; 
 import * as parsedData from './JSON_Dat.json';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
+import DynamicFooter from './components/footer/DynamicFooter'
+import './custom.js'
+
 import { Tooltip } from '@trendmicro/react-tooltip';
 import '@trendmicro/react-tooltip/dist/react-tooltip.css';
- 
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import './App.css';
 
-import DataGuidence from './DataGuidence';
+
+
+
+import DataGuidance from './DataGuidance';
 import TermsConditions from './TermsConditions';
 import Contact from './Contact';
 import Glossary from './Glossary';
 import About from './About';
+// import iFrame from './components/iframe/FullheightIframe';
+// import FullheightIframe from './components/iframe/FullheightIframe';
+// import SmartIFrame from './components/iframe/FullheightIframe';
+// import WrappedFrame from './components/iframe/FullheightIframe';
+import brandlogo from './logo.png';
+
 
 class App extends Component { 
 
@@ -33,7 +46,7 @@ constructor(props) {
   this.BuildStyleVar = this.BuildStyleVar.bind(this)
   this.toggle = this.toggle.bind(this)
   this.handleChange = this.handleChange.bind(this)
-  this.iFrameModal = this.iFrameModal.bind(this);
+  // this.iFrameModal = this.iFrameModal.bind(this);
   this.linkCheck = this.linkCheck.bind(this);
   this.FindPath = this.FindPath.bind(this);
   this.findCorrespondingId = this.findCorrespondingId.bind(this);
@@ -60,8 +73,8 @@ handleClick(event) {
       ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
       break;
     
-    case "DataGuidence":
-      ReactDOM.render(<DataGuidence/>, document.getElementById('root'));
+    case "DataGuidance":
+      ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
       break;
     
     case "Contact":
@@ -346,18 +359,23 @@ reloadContent(path) {
       ReactDOM.render(<TermsConditions/>, document.getElementById('root'));
       break;
     
-    case "DataGuidence":
-      ReactDOM.render(<DataGuidence/>, document.getElementById('root'));
+    case "DataGuidance":
+      ReactDOM.render(<DataGuidance/>, document.getElementById('root'));
       break;
     
     case "Contact":
       ReactDOM.render(<Contact/>, document.getElementById('root'));
       break;
 
+    case "Search":
+      ReactDOM.render(<WrappedFrame />,  document.getElementById('root'))  
+
     default:
     break;
   }
 }
+
+
 
 reloadWidgets(content) {
   this.setState({widgets : content})
@@ -437,15 +455,15 @@ BuildStyleVar(NodePath){
   return style2object(Style)
 }
 
-iFrameModal(Header, iFrameLink, modalId) {
+// iFrameModal(Header,  modalId) {
 
-  const ReturnModal = () => (<Modal size="lg" aria-hidden="true" onClickAway={() => this.toggle(modalId)} effect="fadeInUp" isOpen={this.state[modalId.replace("#","")]} toggle={() => this.toggle(modalId)} background="grey">
-                               <ModalHeader size="lg" className="black-text">{"Terms and Conditions"}</ModalHeader>
-                               <iframe src={ iFrameLink } title="#"></iframe>
-                             </Modal>);
+//   const ReturnModal = () => (<Modal size="lg" aria-hidden="true" onClickAway={() => this.toggle(modalId)} effect="fadeInUp" isOpen={this.state[modalId.replace("#","")]} toggle={() => this.toggle(modalId)} background="grey">
+//                                <ModalHeader size="lg" className="black-text">{ Header }</ModalHeader>
+//                                <iframe src={ 'http://www.sasdi.net/search.aspx?noframe=true' } title="#"></iframe>
+//                              </Modal>);
 
-  return (<ReturnModal/>);
-}
+//   return (<ReturnModal/>);
+// }
 
 //#endregion
 
@@ -453,12 +471,12 @@ HeaderFunc = () => {
   //Remeber to check for the header logo
   const children = []
   var HeaderLogo, hrefLink = "http://app01.saeon.ac.za/sarva3/", iframeSrc = 'http://www.sasdi.net/search.aspx?anytext='
-  const base = (<nav className="white" role="navigation">
+  const base = (<nav className="header-wrap" role="navigation">
                   <div className="nav-wrapper container">
-                    <a id="logo-container" href={ hrefLink } rel="noopener nereferrer" className="brand-logo">&nbsp; SARVA 3.0</a>
+                    <a id="logo-container" href={ hrefLink } rel="noopener nereferrer" className="brand-logo"><img src={brandlogo} /><div>SAEON Global Change Data Centre</div></a>
                     <ul className="right hide-on-med-and-down" key="HeaderFuncKey">
                       {children} 
-                      <i className="glyphicon glyphicon-search" style={{ fontSize: '1.75em', color: 'rgb(104, 103, 103)'}} onClick={() => this.toggle('searchBar')} />
+                      {/* <i className="glyphicon glyphicon-search" style={{ fontSize: '1.75em', color: 'rgb(104, 103, 103)'}} onClick={() => this.toggle('searchBar')} /> */}
                     </ul>
                     <input className={ this.state["HideSearchBar"] ? 'hidden black-text' : 'black-text'} type="text" name="Search" value={this.state.SearchText} onChange={this.handleChange} ></input>
                     <i className='hidden glyphicon glyphicon-search' style={{ fontSize: '1.75em', color: 'rgb(104, 103, 103)'}} />
@@ -514,7 +532,10 @@ HeaderFunc = () => {
                   // children.push(<li styled="true" key={ parsedData.default.ideas[x].ideas[z].ideas[ddl].id }><a href="www.google.com">{parsedData.default.ideas[x].ideas[z].ideas[ddl].title}</a></li>)
                   
                   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                  children.push(<li styled="true" key={ parsedData.default.ideas[x].ideas[z].ideas[ddl].id }><button type="button" className="link-button" style={{ backgroundColor: "transparent", color: "black", border: "none" }} onClick={ this.handleClick.bind(this, parsedData.default.ideas[x].ideas[z].ideas[ddl].attr.link) } >{parsedData.default.ideas[x].ideas[z].ideas[ddl].title}</button></li>)
+                  children.push(
+                  <li styled="true" key={ parsedData.default.ideas[x].ideas[z].ideas[ddl].id }>
+                    <div onClick={ this.handleClick.bind(this, parsedData.default.ideas[x].ideas[z].ideas[ddl].attr.link) } >{parsedData.default.ideas[x].ideas[z].ideas[ddl].title}
+                    </div></li>)
                 }
               }
             }
@@ -524,7 +545,7 @@ HeaderFunc = () => {
                   HeaderLogo = this.googleImage(this.extractLink(parsedData.default.ideas[x].ideas[z].ideas[count].title))
                 }
               }
-              children.push(<img id="menu-logo" alt="img not loaded" src={HeaderLogo}></img> )
+              children.push()
             }
           } 
         }
@@ -861,16 +882,29 @@ ContentFunc = (Page) => {
     // }
   // }
 
-  var Base = <div id="index-banner" className="parallax-container" >
-                  { this.createBreadcrumb(Page) }
-                  <div className="section no-pad-bot">
-                    <div className="container">
-                      <br></br>
-                      <br></br> 
-                      { DynamicContent }
+   var Base = <div id="index-banner" class="home-pg" >
+                <div class="home-search">
+                  <form id="home-search-form">
+                  <input type="text" class="browser-default" placeholder="search" />
+                  </form>
+                  </div>
+
+                  <div id="searchopen" class="modal fade modal-full" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <iframe src="" />
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
                     </div>
-                  </div> 
-                </div>
+                  </div>
+                  
+              {DynamicContent}
+              </div>
 
   return Base
 }
@@ -945,10 +979,10 @@ ContentWidgets = (Content) => {
                          ButtonText = parsedData.default.ideas[x].ideas[z].ideas[d].ideas[c].title;
                     }
                     const MessengerVar = ButtonText.toString()
-
+                    
                       Widgets.push(<div className="col s12 m4" key={parsedData.default.ideas[x].ideas[z].ideas[d].id}>
                                     <div className="icon-block center">
-                                      <button type="button" className="btn btn-primary" data-target="theme-modal" onClick={ () => this.reloadContent(MessengerVar, 'widget')}>{ ButtonText }</button>
+                                      <button type="button" className="btn btn-primary" data-target="#theme-modal" onClick={ () => this.reloadContent(MessengerVar, 'widget')}>{ ButtonText }</button>
                                       <h4 className="center">{ Header }</h4>
                                       <p className="light center">{ Description }</p>
                                     </div>
@@ -962,7 +996,7 @@ ContentWidgets = (Content) => {
       }
     }
 
-  const Base = <div>
+  const Base = <div class="home-content">
                  <div className="container widgets">
                    <div className="section">
                       <div className="row">
@@ -970,10 +1004,8 @@ ContentWidgets = (Content) => {
                       </div>
                     </div>
                  </div>
-                 <div className="parallax-container valign-wrapper" >
-                   {/* {Text} */}
-                 </div>
                </div>
+               
 
   if (Content.length === 0) {
     return Base;
@@ -983,100 +1015,14 @@ ContentWidgets = (Content) => {
   }
 }
 
-FooterFunc = () => { 
-
-  const children = [] 
-  var FooterStyle //= { 'padding-left': '1%', 'padding-right': '1%' }
-  var cardTitle
-  var cardSub 
-
-  for (let x in parsedData.default.ideas) {
-    for (let y in parsedData.default.ideas[x])
-    { 
-      if (parsedData.default.ideas[x][y] === "Footer") 
-      {
-        FooterStyle = this.BuildStyleVar(parsedData.default.ideas[x])
-        if(parsedData.default.ideas[x].ideas !== "undefined")
-        {
-          for (let z in parsedData.default.ideas[x].ideas)
-          {
-
-            cardTitle = "";
-            cardSub = "";
-            var type = false;
-            var linkList = []
-
-            for (let r in parsedData.default.ideas[x].ideas[z]) {
-              if (r === "title") {
-                cardTitle = parsedData.default.ideas[x].ideas[z][r];
-              }
-              else if (r === "attr") {
-                for (let t in parsedData.default.ideas[x].ideas[z][r]) {
-                  for (let u in parsedData.default.ideas[x].ideas[z][r][t]) {
-                    if (u === "text") {
-                      cardSub = <p className="white-text light"> { parsedData.default.ideas[x].ideas[z][r][t][u] } </p>
-                    } 
-                  }
-                }
-              }
-              else if (r === "ideas") {
-                var link = ""
-                for (let t in parsedData.default.ideas[x].ideas[z][r]) {
-                  //Check link type here and determine if its a logo or something
-                  link = (this.extractLink(parsedData.default.ideas[x].ideas[z][r][t].title));
-                  
-                  if (this.isImage(link)) { //If it is an image, or more accurately it is a google drive doc
-                    cardSub = <img src={ link.replace("open", "uc") } alt="img not loaded"></img>
-                  } 
-                  else { //If it is not a google drive link
-                    type = true;
-
-                    const ModalId = '#' + parsedData.default.ideas[x].ideas[z][r][t].id.replace(/\s/g, '');
-                    
-                    // while (ModalId.indexOf('.') !== 0) {
-                    //   //ModalId = ModalId.replace('.','');
-                    //   alert(ModalId.indexOf('.'))
-                    //   ModalId = ModalId.slice(ModalId.indexOf('.'), ModalId.indexOf('.') + 1);
-                    // }
-
-                    
-
-                    linkList.push(<div>
-                                    <li key={ parsedData.default.ideas[x].ideas[z][r][t].id }>
-                                      <a className="white-text light" href="https://#" onClick={ () => this.toggle(ModalId)}>
-                                        { parsedData.default.ideas[x].ideas[z][r][t].title.split("http")[0] }
-                                      </a>
-                                    </li>
-                                    { this.iFrameModal("", link, ModalId) }
-                                  </div>)
-                  }
-                }
-              }
-            }
-            if (type) {
-              children.push(<div className="col l3 s12" key={ parsedData.default.ideas[x].ideas[z].id + x.toString() }>
-                              <h5 className="white-text light"> { cardTitle } </h5>
-                              <ul>{ linkList }</ul>
-                            </div>)
-            }
-            else {
-            children.push(<div className="col l3 s12" key={ parsedData.default.ideas[x].ideas[z].id + x.toString() }>
-                            <h5 className="white-text light"> { cardTitle } </h5>
-                            { cardSub }
-                          </div>)
-            }
-          }
-        }
-      }
-    }
-  } 
-
-  return <footer className="page-footer font-small indigo" style={ FooterStyle }>
-            <div className="row" style={{ marginLeft: "15px"}}>
-              {children}
-            </div>
-          </footer> 
+FooterFunc = () => {
+  return <Suspense fallback={<span>...loadingandloadingandloading</span>}>
+    
+           <DynamicFooter />
+         </Suspense>
+         
 }
+
  
 render() {
     var modal = document.getElementById('searchiFrame');
@@ -1107,10 +1053,9 @@ render() {
         {this.HeaderFunc()}
         {this.ContentFunc(this.state.content)} 
         {this.ContentWidgets(this.state.widgets)}       
-        {this.FooterFunc()}
       </div>
     );
   }
 }
 
-export default App;
+export default hot(module)(App)
