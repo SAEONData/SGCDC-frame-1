@@ -2853,8 +2853,13 @@ video.responsive-video {
 }
 
 .page-footer {
-  padding-top: 20px;
+  padding-top: 40px;
   background-color: #ee6e73;
+  line-height: 18px;
+}
+.page-footer, .page-footer p {
+  line-height: 20px;
+  font-size: 12px;
 }
 
 .page-footer .footer-copyright {
@@ -3824,7 +3829,6 @@ nav ul a span.badge {
     margin-left: auto;
     left: auto;
     right: auto;
-    text-align: center !important;
   }
   .row .col.l4 {
     width: 33.3333333333%;

@@ -22,12 +22,13 @@ html{
 }
 .header-wrap{
   background: rgba(255,255,255,0.8);
-  background: -moz-linear-gradient(left, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0.8) 48%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0.8)), color-stop(48%, rgba(0,0,0,0.8)));
-  background: -webkit-linear-gradient(left, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0.8) 48%);
-  background: -o-linear-gradient(left, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0.8) 48%);
-  background: -ms-linear-gradient(left, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0.8) 48%);
-  background: linear-gradient(to right, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0.8) 48%);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(0,0,0,0.8) 63%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0.8)), color-stop(20%, rgba(255,255,255,0.8)), color-stop(48%, rgba(0,0,0,0.8)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(0,0,0,0.8) 63%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(0,0,0,0.8) 63%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(0,0,0,0.8) 63%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(0,0,0,0.8) 63%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(0,0,0,0.8) 63%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=1 );
 }
 body {
@@ -57,13 +58,13 @@ body {
   }
   nav.header-wrap .brand-logo {
     position: relative;
-    padding: 15px 0;
+    float:left;
   }
   .brand-logo img{
     float: left;
     padding-right: 15px;
     width: auto;
-    max-height: 66px;
+    max-height: 84px;
   }
   .header-wrap .brand-logo div{
     color:#000;
