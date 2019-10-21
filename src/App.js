@@ -30,7 +30,8 @@ import About from './About';
 // import FullheightIframe from './components/iframe/FullheightIframe';
 // import SmartIFrame from './components/iframe/FullheightIframe';
 // import WrappedFrame from './components/iframe/FullheightIframe';
-import brandlogo from './logo.png';
+// import brandlogo from './logo.png';
+import brandlogo from './gcdc_logo.png';
 
 
 class App extends Component { 
@@ -473,7 +474,9 @@ HeaderFunc = () => {
   var HeaderLogo, hrefLink = "http://app01.saeon.ac.za/sarva3/", iframeSrc = 'http://www.sasdi.net/search.aspx?anytext='
   const base = (<nav className="header-wrap" role="navigation">
                   <div className="nav-wrapper container">
-                    <a id="logo-container" href={ hrefLink } rel="noopener nereferrer" className="brand-logo"><img src={brandlogo} /><div>SAEON Global Change Data Centre</div></a>
+                    <a id="logo-container" href={ hrefLink } rel="noopener nereferrer" className="brand-logo"><img src={brandlogo} />
+                    {/* <div>SAEON Global Change Data Centre</div> */}
+                    </a>
                     <ul className="right hide-on-med-and-down" key="HeaderFuncKey">
                       {children} 
                       {/* <i className="glyphicon glyphicon-search" style={{ fontSize: '1.75em', color: 'rgb(104, 103, 103)'}} onClick={() => this.toggle('searchBar')} /> */}
